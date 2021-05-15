@@ -14,19 +14,16 @@ export default class Cloth {
       config.restDistance * this.w,
       config.restDistance * this.h
     );
-    this.windForce = new Vector3(0, 0, 0);
+    this.windForce = new Vector3();
 
     const GRAVITY = 981 * 1.4;
-    this.mass = 0.1;
+    this.mass = 0.05;
     this.gravity = new Vector3(0, -GRAVITY, 0).multiplyScalar(this.mass);
 
     this.createParticles();
     this.createConstraints();
   }
 
-  index(u, v) {
-    return u + v * (this.w + 1);
-  }
   plane(width, height) {
     return (u, v, target) => {
       const x = (u - 0.5) * width;
@@ -57,7 +54,6 @@ export default class Cloth {
       }
     }
   }
-
   createConstraints() {
     this.constrains = [];
 
@@ -97,6 +93,9 @@ export default class Cloth {
     }
   }
 
+  index(u, v) {
+    return u + v * (this.w + 1);
+  }
   simulate(time, clothGeometry) {
     if (!this.lastTime) {
       this.lastTime = time;

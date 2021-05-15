@@ -1,10 +1,4 @@
-import {
-  Scene,
-  AmbientLight,
-  DirectionalLight,
-  PerspectiveCamera,
-  WebGLRenderer,
-} from "three";
+import { Scene, PerspectiveCamera, WebGLRenderer } from "three";
 
 export default class MainScene {
   constructor() {
