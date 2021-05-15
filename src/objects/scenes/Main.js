@@ -11,7 +11,6 @@ export default class MainScene {
     this.scene = new Scene();
 
     this.camera();
-    this.lights();
     this.renderer();
     this.listeners();
     this.appendChild();
@@ -19,36 +18,30 @@ export default class MainScene {
 
   camera() {
     this.camera = new PerspectiveCamera(
-      30,
+      80,
       window.innerWidth / window.innerHeight,
       1,
       10000
     );
-    this.camera.position.x = 1000;
-    this.camera.position.y = 50;
-    this.camera.position.z = 1500;
+    this.camera.position.z = 700;
+    this.camera.lookAt(this.scene.position);
     this.scene.add(this.camera);
-  }
-
-  lights() {
-    // this.scene.add(new AmbientLight(0x111111));
-
-    this.light = new AmbientLight(0xffffff);
-
-    this.scene.add(this.light);
   }
 
   appendChild() {
     this.container = document.createElement("div");
     document.body.appendChild(this.container);
+    this.container.style.position = "fixed";
+    this.container.style.top = "0";
+    this.container.style.left = "0";
     this.container.appendChild(this.renderer.domElement);
   }
 
   renderer() {
-    this.renderer = new WebGLRenderer({ antialias: true });
+    this.renderer = new WebGLRenderer();
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor(0x000000);
+    this.renderer.setClearColor(0xffffff);
 
     this.renderer.gammaInput = true;
     this.renderer.gammaOutput = true;
@@ -69,7 +62,6 @@ export default class MainScene {
   }
 
   render() {
-    this.camera.lookAt(this.scene.position);
     this.renderer.render(this.scene, this.camera);
   }
 }

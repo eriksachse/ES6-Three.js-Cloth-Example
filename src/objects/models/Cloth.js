@@ -7,7 +7,7 @@ export default class Cloth {
     this.w = w || 10;
     this.h = h || 10;
     this.lastTime = null;
-    this.pins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    this.pins = [0, 1, 2, 6, 7, 9, 10, 32, 76];
     this.tmpForce = new Vector3();
     this.diff = new Vector3();
     this.clothFunction = this.plane(
