@@ -8,11 +8,13 @@ No need for external physics librarys 😎
 
 Demo: https://es-6-three-js-cloth-example.vercel.app
 
+---
+
+Thank you:
+
 ## Three-Seed -> https://github.com/edwinwebb/three-seed.git
 
 Three-Seed starter project boilerplate bundled with Webpack.
-
-[Online Demo](http://edwinwebb.github.io/three-seed/)
 
 ### Install with Git
 
@@ -31,4 +33,4 @@ npm start
 
 ---
 
-## Cloth example -> https://threejs.org/examples/#webgl_animation_cloth
+## Official Cloth example -> https://threejs.org/examples/#webgl_animation_cloth
